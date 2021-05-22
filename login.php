@@ -6,19 +6,19 @@ session_start();
 
 error_reporting(0);
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['name'])) {
     header("Location: index.php");
 }
 
 if (isset($_POST['submit'])) {
-    $personal_ID = $_POST['personal_ID'];
+    $id = $_POST['id'];
 	$password = md5($_POST['password']);
 
-	$sql = "SELECT * FROM user WHERE personal_ID ='$personal_ID' AND password='$password'";
+	$sql = "SELECT * FROM patient WHERE id ='$id' AND password='$password'";
 	$result = mysqli_query($conn, $sql);
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
-		$_SESSION['username'] = $row['username'];
+		$_SESSION['name'] = $row['name'];
 		header("Location: index.php");
 	} else {
 		echo "<script>alert('Woops! Personal ID or Password is Wrong.')</script>";
@@ -144,7 +144,7 @@ if (isset($_POST['submit'])) {
 		<form action="" method="POST" class="login-email">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
 			<div class="input-group">
-				<input type="personal_ID" placeholder="Personal ID" name="personal_ID" value="<?php echo $_POST['personal_ID']; ?>" required>
+				<input type="id" placeholder="Personal ID" name="id" value="<?php echo $_POST['id']; ?>" required>
 			</div>
 			<div class="input-group">
 				<input type="password" placeholder="Password" name="password" value="<?php $password; ?>" required>

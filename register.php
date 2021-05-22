@@ -11,23 +11,31 @@ if (isset($_SESSION['username'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $personal_ID = $_POST['personal_ID'];
-	$username = $_POST['username'];
+    $id = $_POST['id'];
+	$name = $_POST['name'];
+	$gender = $_POST['gender'];
+	$bday = $_POST['bday'];
+	$age = $_POST['age'];
+	$phone = $_POST['phone'];
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
 
 	if ($password == $cpassword) {
-		$sql = "SELECT * FROM user WHERE personal_ID='$personal_ID'";
+		$sql = "SELECT * FROM patient WHERE id='$id'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO user (personal_ID, username, email, password)
-					VALUES ('$personal_ID', '$username', '$email', '$password')";
+			$sql = "INSERT INTO patient (id, name, gender, bday, age, phone, email, password)
+					VALUES ('$id', '$name',  '$gender',  '$bday', '$age', '$phone', '$email', '$password')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('User Registration Completed.')</script>";
-				$personal_ID = "";
-				$username = "";
+				$id = "";
+				$name = "";
+				$gender = "";
+				$bday = "";
+				$age = "";
+				$phone = "";
 				$email = "";
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
@@ -160,11 +168,23 @@ if (isset($_POST['submit'])) {
 		<form action="" method="POST" class="login-email">
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
             <div class="input-group">
-				<input type="text" placeholder="Personal ID" name="personal_ID" value="<?php echo $personal_ID; ?>" required>
+				<input type="text" placeholder="Personal ID" name="id" value="<?php echo $id; ?>" required>
 			</div>
 			<div class="input-group">
-				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
+				<input type="text" placeholder="Username" name="name" value="<?php echo $name; ?>" required>
 			</div>
+				<div class="input-group">
+				<input type="text" placeholder="Gender" name="gender" value="<?php echo $gender; ?>" required>
+			</div>	
+			<div class="input-group">
+				<input type="text" placeholder="Birthday date" name="bday" value="<?php echo $bday; ?>" required>
+			</div>		
+			<div class="input-group">
+				<input type="text" placeholder="Age" name="age" value="<?php echo $age; ?>" required>
+			</div>	
+			<div class="input-group">
+				<input type="text" placeholder="Phone number" name="phone" value="<?php echo $phone; ?>" required>
+			</div>	
 			<div class="input-group">
 				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
 			</div>

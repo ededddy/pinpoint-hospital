@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['name'])) {
     header("Location: login.php");
 }
 
@@ -34,7 +34,7 @@ if (!isset($_SESSION['username'])) {
               <b>Pin Point</b><br />
               Hospital
             </h3>
-              <p><?php echo "user: " . $_SESSION['username']; ?><a href="logout.php">Logout</a></p>
+              <p><?php echo "user: " . $_SESSION['name']; ?><a href="logout.php">Logout</a></p>
           </a>
           <button
             class="navbar-toggler"
