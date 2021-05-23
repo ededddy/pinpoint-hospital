@@ -141,7 +141,7 @@
         $bg_cnt = 1;
         for($i=0; $i<count($divisions); ++$i){
       ?>
-        <section id="Cardiology">
+        <section id="<?php echo($divisions[$i]);?>">
           <h5 class="display-5 text-muted"><?php echo(htmlspecialchars($divisions[$i]));?></h5>
           <hr class="divider my-3" />
           <?php foreach($docs[$i] as $doc) {?>
@@ -162,13 +162,13 @@
               <div class="col-md-7">
                 <h5>Dr. <?php echo($doc['name']); ?></h5>
                 <p class="text-muted fs-6"><?php echo($doc['title']); ?></p>
-                <p class="lead">
+                <div class="lead">
                   <ul>
                     <li>
                       <?php echo(str_replace("\n", "</li><li>", $doc['edu_bg']));?>
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
             </div>
             <?php 
