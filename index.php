@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
 
 $isLoggedIn = false;
@@ -7,7 +6,6 @@ $isLoggedIn = false;
 if (isset($_SESSION['name'])) {
   $isLoggedIn = true;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -171,7 +169,7 @@ if (isset($_SESSION['name'])) {
             </div>
             <div class="carousel-item">
               <img
-                src="images/surgery room.jpg"
+                src="images/surgery-room.jpg"
                 class="d-block img-fluid"
                 alt="surgery room"
               />
@@ -309,7 +307,6 @@ if (isset($_SESSION['name'])) {
             <div class="col-lg-4 d-flex flex-column align-items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class=""
                 width="140"
                 height="140"
                 fill="currentColor"
