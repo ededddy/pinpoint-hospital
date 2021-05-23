@@ -92,7 +92,7 @@ if(isset($_POST['submit'])){
                 <a class="nav-link" href="#">News</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Our Staff</a>
+                <a class="nav-link" href="./doctors/">Our Staff</a>
               </li>
               <li class="nav-item dropdown">
                 <a
