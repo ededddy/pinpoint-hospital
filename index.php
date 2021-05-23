@@ -77,9 +77,12 @@ if (!isset($_SESSION['name'])) {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li><a class="dropdown-item" href="#">Login</a></li>
-                  <li><a class="dropdown-item" href="#">Register</a></li>
+                  <li><a class="dropdown-item" href="register.php">Register</a></li>
                   <li>
-                    <a class="dropdown-item" href="cancel_logi.php">Appoint a meeting</a>
+                    <a class="dropdown-item" href="<?php echo 'appointment.php?='.$_SESSION['id']?>">Appoint a meeting</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="cancel_logi.php">Cancel meeting</a>
                   </li>
                 </ul>
               </li>
