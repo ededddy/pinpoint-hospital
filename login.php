@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
     <!-- Bootstrap JS -->
     <script defer src="js/bootstrap.bundle.min.js"></script>
 
-	<title>Login</title>
+	<title>PinPoint Hospital - Login</title>
 </head>
 <body>
    <div>
@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
@@ -82,11 +82,11 @@ if (isset($_POST['submit'])) {
                 <a class="nav-link" href="#">News</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Our Staff</a>
+                <a class="nav-link" href="./doctors/">Our Staff</a>
               </li>
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link dropdown-toggle active"
                   href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li><a class="dropdown-item" href="login.php">Login</a></li>
+                  <li><a class="dropdown-item active" href="login.php">Login</a></li>
                   <li><a class="dropdown-item" href="register.php">Register</a></li>
                   <li>
                     <a class="dropdown-item" href="#">Appoint a meeting</a>

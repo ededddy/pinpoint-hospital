@@ -6,6 +6,10 @@ session_start();
 if(isset($_POST['exit'])){
     header("Location:cancel_logi.php");
 }
+$isLoggedIn=false;
+if(isset($_SESSION['name'])){
+  $isLoggedIn=true;
+}
 
 $reservation_num = $_SESSION['reservation_num'];
 $sql_ser = "SELECT * FROM reservation WHERE r_id = '$reservation_num'";
@@ -88,7 +92,7 @@ if(isset($_POST['delete'])){
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="./">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
@@ -114,8 +118,17 @@ if(isset($_POST['delete'])){
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <li><a class="dropdown-item" href="#">Login</a></li>
-                  <li><a class="dropdown-item" href="#">Register</a></li>
+                <?php if(!$isLoggedIn) { 
+                echo('
+                  <li><a class="dropdown-item" href="login.php">Login</a></li>
+                  <li><a class="dropdown-item" href="register.php">Register</a></li>
+                ');
+                }
+                else {
+                echo ( '<li><a href="#">' .htmlspecialchars($_SESSION['name']) .'</a></li>');
+                echo(
+                '<a href="logout.php">Logout</a>');
+                } ?>
                   <li>
                     <a class="dropdown-item" href="#">Appoint a meeting</a>
                   </li>
