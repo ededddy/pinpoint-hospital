@@ -154,11 +154,7 @@
                 <img
                   class="portrait-img"
                   src="../images/doc-<?php 
-                    if($doc['name'] == "Mary Jane"){
-                      echo("2");
-                    } else {
-                      echo([1,3,4][array_rand([1,3,4], 1)]);
-                    }
+                      echo([1,2, 3,4][array_rand([1,2, 3,4], 1)]);
                   ?>.jpg"
                   alt="<?php echo($doc['name']); ?>"
                 />
