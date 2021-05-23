@@ -1,6 +1,6 @@
 <?php 
 
-include 'config.php';
+include 'config_loginandregister.php';
 
 error_reporting(0);
 
@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM patient WHERE id='$id'";
 		$result = mysqli_query($conn, $sql);
+	  if($gender == 'Male'||$gender =='Female'){
 		if (!$result->num_rows > 0) {
 			$sql = "INSERT INTO patient (id, name, gender, bday, age, phone, email, password)
 					VALUES ('$id', '$name',  '$gender',  '$bday', '$age', '$phone', '$email', '$password')";
@@ -42,12 +43,16 @@ if (isset($_POST['submit'])) {
 			} else {
 				echo "<script>alert('Woops! Something Wrong Went.')</script>";
 			}
-		} else {
+		} 
+		else {
 			echo "<script>alert('Woops! Personal ID Already Exists.')</script>";
 		}
+	  }
+	  else{    echo "<script>alert('Woops! Gender Enter Wrong.')</script>";
+	  }
 		
 	} else {
-		echo "<script>alert('Password Not Matched.')</script>";
+		echo "<script>alert('Woops! Password Not Matched.')</script>";
 	}
 }
 
@@ -71,7 +76,7 @@ if (isset($_POST['submit'])) {
     <!-- Bootstrap JS -->
     <script defer src="js/bootstrap.bundle.min.js"></script>
 
-	<title>PinPoint Hospital - Register</title>
+	<title>Register Form</title>
 </head>
 <body>
   <div>
@@ -98,7 +103,7 @@ if (isset($_POST['submit'])) {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
@@ -107,11 +112,11 @@ if (isset($_POST['submit'])) {
                 <a class="nav-link" href="#">News</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./doctors/">Our Staff</a>
+                <a class="nav-link" href="#">Our Staff</a>
               </li>
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle active"
+                  class="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
@@ -125,7 +130,7 @@ if (isset($_POST['submit'])) {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li><a class="dropdown-item" href="login.php">Login</a></li>
-                  <li><a class="dropdown-item active" href="register.php">Register</a></li>
+                  <li><a class="dropdown-item" href="register.php">Register</a></li>
                   <li>
                     <a class="dropdown-item" href="#">Appoint a meeting</a>
                   </li>
@@ -174,7 +179,7 @@ if (isset($_POST['submit'])) {
 				<input type="text" placeholder="Username" name="name" value="<?php echo $name; ?>" required>
 			</div>
 				<div class="input-group">
-				<input type="text" placeholder="Gender" name="gender" value="<?php echo $gender; ?>" required>
+				<input type="text" placeholder="Gender (Please enter Male or Female!)" name="gender" value="<?php echo $gender; ?>" required>
 			</div>	
 			<div class="input-group">
 				<input type="text" placeholder="Birthday date" name="bday" value="<?php echo $bday; ?>" required>
