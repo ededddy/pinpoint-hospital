@@ -1,15 +1,14 @@
 <?php 
 
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db_name = "cisc3003";
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$db = 'cisc3003';
 
-$conn = mysqli_connect($server, $user, $pass, $db_name);
+$con = mysqli_connect($host,$user,$pass,$db);
 
-if (!$conn) {
+if(!$con){
     die("<script>alert('Connection Failed.')</script>");
 }
-
 
 ?>
