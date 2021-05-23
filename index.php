@@ -1,10 +1,8 @@
 <?php 
 session_start();
 
-$isLoggedIn = false;
-
-if (isset($_SESSION['name'])) {
-  $isLoggedIn = true;
+if (!isset($_SESSION['name'])) {
+    header("Location: login.php");
 }
 ?>
 
@@ -34,6 +32,7 @@ if (isset($_SESSION['name'])) {
               <b>Pin Point</b><br />
               Hospital
             </h3>
+              <p><?php echo "user: " . $_SESSION['name']; ?><a href="logout.php">Logout</a></p>
           </a>
           <button
             class="navbar-toggler"
@@ -49,7 +48,7 @@ if (isset($_SESSION['name'])) {
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
@@ -58,7 +57,7 @@ if (isset($_SESSION['name'])) {
                 <a class="nav-link" href="#">News</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./doctors/">Our Staff</a>
+                <a class="nav-link" href="#">Our Staff</a>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -75,19 +74,10 @@ if (isset($_SESSION['name'])) {
                   class="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                <?php if(!$isLoggedIn) { 
-                echo('
-                  <li><a class="dropdown-item" href="login.php">Login</a></li>
-                  <li><a class="dropdown-item" href="register.php">Register</a></li>
-                ');
-                }
-                else {
-                echo ( '<li><a href="#">' .htmlspecialchars($_SESSION['name']) .'</a></li>');
-                echo(
-                '<a href="logout.php">Logout</a>');
-                } ?>
+                  <li><a class="dropdown-item" href="#">Login</a></li>
+                  <li><a class="dropdown-item" href="#">Register</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">Appoint a meeting</a>
+                    <a class="dropdown-item" href="cancel_logi.php">Appoint a meeting</a>
                   </li>
                 </ul>
               </li>
