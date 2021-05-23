@@ -54,7 +54,7 @@ if (!isset($_SESSION['name'])) {
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" aria-current="page" href="./index.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About Us</a>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['name'])) {
             <a class="nav-link" href="#">News</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Our Staff</a>
+            <a class="nav-link" href="./doctors/">Our Staff</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -71,12 +71,24 @@ if (!isset($_SESSION['name'])) {
               Appointments
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Login</a></li>
-              <li><a class="dropdown-item" href="#">Register</a></li>
-              <li>
-                <a class="dropdown-item" href="#">Appoint a meeting</a>
-              </li>
-            </ul>
+                <?php
+                echo ( '<li><a href="#">' .htmlspecialchars($_SESSION['name']) .'</a></li>');
+                echo(
+                '<a href="logout.php">Logout</a>');
+                echo(
+                  '
+                  <li>
+                    <a class="dropdown-item" href="appointment.php?='.$_SESSION["id"]. '">Appoint a meeting</a>
+                  </li>
+                  '
+                );
+                echo('
+                  <li>
+                    <a class="dropdown-item" href="cancel_logi.php">Cancel meeting</a>
+                  </li>
+                ');
+                ?>
+                </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-bs-toggle="dropdown"

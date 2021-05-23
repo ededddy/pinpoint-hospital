@@ -83,9 +83,17 @@ if(isset($_SESSION['name'])){
                 echo ( '<li><a href="#">' .htmlspecialchars($_SESSION['name']) .'</a></li>');
                 echo(
                 '<a href="logout.php">Logout</a>');
-                } ?>
+                } 
+                echo(
+                  '
                   <li>
-                    <a class="dropdown-item" href="#">Appoint a meeting</a>
+                    <a class="dropdown-item" href="appointment.php?='.$_SESSION["id"]. '">Appoint a meeting</a>
+                  </li>
+                  '
+                );
+                ?>
+                  <li>
+                    <a class="dropdown-item" href="cancel_logi.php">Cancel meeting</a>
                   </li>
                 </ul>
               </li>

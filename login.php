@@ -102,9 +102,6 @@ if (isset($_POST['submit'])) {
                 >
                   <li><a class="dropdown-item active" href="login.php">Login</a></li>
                   <li><a class="dropdown-item" href="register.php">Register</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Appoint a meeting</a>
-                  </li>
                 </ul>
               </li>
               <li class="nav-item dropdown">

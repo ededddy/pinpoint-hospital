@@ -108,11 +108,23 @@ $conn->close();
                             Appointments
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Login</a></li>
-                            <li><a class="dropdown-item" href="#">Register</a></li>
+                          <?php
+                          echo ( '<li><a href="#">' .htmlspecialchars($_SESSION['name']) .'</a></li>');
+                          echo(
+                          '<a href="logout.php">Logout</a>');
+                          echo(
+                            '
                             <li>
-                                <a class="dropdown-item" href="appointment.php">Appoint a meeting</a>
+                              <a class="dropdown-item" href="appointment.php?='.$_SESSION["id"]. '">Appoint a meeting</a>
                             </li>
+                            '
+                          );
+                          echo('
+                            <li>
+                              <a class="dropdown-item" href="cancel_logi.php">Cancel meeting</a>
+                            </li>
+                          ');
+                          ?>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
