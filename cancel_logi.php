@@ -15,10 +15,10 @@ if(isset($_POST['submit'])){
     $patient_birth = $_POST['patient_birth'];
     
     $sql = "SELECT * FROM patient WHERE id='$patient_ID' AND bday='$patient_birth'";
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con, $sql);
     
     $sql_num = "SELECT * FROM reservation WHERE r_id='$reservation_num'";
-    $result_num = mysqli_query($con,$sql_num);
+    $result_num = mysqli_query($con, $sql_num);
     
     if($result !== false and $result->num_rows > 0 ){
         $row = mysqli_fetch_assoc($result);
